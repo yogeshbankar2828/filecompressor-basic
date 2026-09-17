@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Custom domain | PackZip</title>
+    <meta name="description" content="Point a custom domain at this PackZip instance." />
+    <link rel="canonical" href="/domain" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/css/site.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="wrap">
+        <a class="brand" href="/">
+          <svg width="28" height="28" viewBox="0 0 32 32" aria-hidden="true">
+            <rect width="32" height="32" rx="6" fill="#17352c" />
+            <rect x="8" y="7" width="16" height="18" rx="2" fill="#e7e1d4" />
+            <rect x="8" y="7" width="16" height="5" fill="#c4a35a" />
+          </svg>
+          PackZip
+        </a>
+        <nav>
+          <a href="/">Compress</a>
+          <a href="/terms">Terms</a>
+          <a href="/privacy">Privacy</a>
+          <a href="/domain" aria-current="page">Domain</a>
+        </nav>
+      </div>
+    </header>
+    <main class="wrap legal">
+      <h1>Custom domain</h1>
+      <p class="lede">Use your own hostname. Set DNS, TLS, and the two environment variables below.</p>
+
+      <h2>DNS</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Type</th>
+            <th>Host</th>
+            <th>Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>A</td>
+            <td>@</td>
+            <td>Your server IPv4 address</td>
+          </tr>
+          <tr>
+            <td>AAAA</td>
+            <td>@</td>
+            <td>Your server IPv6 address, if you have one</td>
+          </tr>
+          <tr>
+            <td>CNAME</td>
+            <td>www</td>
+            <td>Your apex domain</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>For GitHub Pages or similar static fronts, put the hostname in <code>public/CNAME</code>. This app is a Node server, so an A or AAAA record to the VPS is the usual path.</p>
+
+      <h2>Environment</h2>
+      <p>In <code>.env</code>:</p>
+      <p><code>SITE_URL=https://files.example.com</code></p>
+      <p><code>CUSTOM_DOMAIN=files.example.com</code></p>
+      <p><code>SITE_URL</code> is used for canonical links, robots.txt, and the sitemap. <code>CUSTOM_DOMAIN</code> is added to CORS.</p>
+
+      <h2>TLS and reverse proxy</h2>
+      <p>Terminate HTTPS in nginx or Caddy, then proxy to <code>127.0.0.1:3000</code>. A sample nginx server block is in <code>deploy/nginx.example.conf</code>. Set <code>client_max_body_size</code> a little above the upload cap.</p>
+
+      <h2>Check</h2>
+      <p>After DNS and TLS work, open <code>/api/v1/config</code>. You should see your domain in <code>siteUrl</code> and <code>customDomain</code>.</p>
+    </main>
+    <footer class="site-footer">
+      <div class="wrap">
+        <p>PackZip</p>
+        <nav>
+          <a href="/privacy">Privacy</a>
+          <a href="/terms">Terms</a>
+        </nav>
+      </div>
+    </footer>
+  </body>
+</html>

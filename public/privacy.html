@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Privacy policy | PackZip</title>
+    <meta name="description" content="How PackZip handles files and job records." />
+    <link rel="canonical" href="/privacy" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/css/site.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="wrap">
+        <a class="brand" href="/">
+          <svg width="28" height="28" viewBox="0 0 32 32" aria-hidden="true">
+            <rect width="32" height="32" rx="6" fill="#17352c" />
+            <rect x="8" y="7" width="16" height="18" rx="2" fill="#e7e1d4" />
+            <rect x="8" y="7" width="16" height="5" fill="#c4a35a" />
+          </svg>
+          PackZip
+        </a>
+        <nav>
+          <a href="/">Compress</a>
+          <a href="/terms">Terms</a>
+          <a href="/privacy" aria-current="page">Privacy</a>
+          <a href="/domain">Domain</a>
+        </nav>
+      </div>
+    </header>
+    <main class="wrap legal">
+      <h1>Privacy policy</h1>
+      <p class="meta">Last updated: 17 September 2026</p>
+
+      <h2>What we collect</h2>
+      <p>When you compress files we store, for the life of the job:</p>
+      <ul>
+        <li>Original file names, MIME types, and byte sizes</li>
+        <li>Compression mode, status, output name, and output size</li>
+        <li>Job id and expiry time</li>
+      </ul>
+      <p>File contents sit on disk only while the job runs, then as a single output file until expiry. We do not read file contents for advertising or training.</p>
+
+      <h2>MongoDB</h2>
+      <p>If the operator sets <code>MONGODB_URI</code>, job metadata is written to that database. If the URI is empty, metadata stays in server memory and is lost on restart. File bytes are never stored as MongoDB documents.</p>
+
+      <h2>Logs and network data</h2>
+      <p>The host and reverse proxy may keep standard access logs (IP address, user agent, path, time). We do not sell this data.</p>
+
+      <h2>Cookies</h2>
+      <p>This site does not set tracking cookies. The compressor talks to the API with ordinary HTTP requests.</p>
+
+      <h2>Retention</h2>
+      <p>Jobs expire after the configured TTL (default 60 minutes). Expired output files are deleted. MongoDB records may also expire through a TTL index on <code>expiresAt</code>.</p>
+
+      <h2>Sharing</h2>
+      <p>We do not share uploads with third parties except the hosting provider and the MongoDB cluster the operator configured. Anyone with the job id can download the output until it expires, so do not post job URLs publicly.</p>
+
+      <h2>Your choices</h2>
+      <p>Do not upload files you do not want processed on this server. After expiry there is nothing left to delete on request, other than residual server logs held by the host.</p>
+
+      <h2>Operator</h2>
+      <p>The privacy contact is the person who runs the instance and the custom domain pointed at it.</p>
+    </main>
+    <footer class="site-footer">
+      <div class="wrap">
+        <p>PackZip</p>
+        <nav>
+          <a href="/privacy">Privacy</a>
+          <a href="/terms">Terms</a>
+        </nav>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,320 @@
+:root {
+  --bg: #efe8d8;
+  --paper: #f7f2e6;
+  --ink: #1a1a16;
+  --muted: #5c584e;
+  --line: #cfc6b4;
+  --accent: #17352c;
+  --accent-2: #c4a35a;
+  --danger: #8a2a1a;
+  --ok: #1d5a3c;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "IBM Plex Sans", "Segoe UI", sans-serif;
+  color: var(--ink);
+  background: var(--bg);
+  line-height: 1.5;
+}
+
+a {
+  color: var(--accent);
+}
+
+.wrap {
+  width: min(920px, calc(100% - 32px));
+  margin: 0 auto;
+}
+
+.site-header,
+.site-footer {
+  border-bottom: 1px solid var(--line);
+}
+
+.site-footer {
+  border-bottom: 0;
+  border-top: 1px solid var(--line);
+  margin-top: 48px;
+}
+
+.site-header .wrap,
+.site-footer .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 64px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: inherit;
+  text-decoration: none;
+  font-weight: 650;
+  letter-spacing: 0.02em;
+}
+
+.brand svg {
+  display: block;
+}
+
+nav {
+  display: flex;
+  gap: 18px;
+}
+
+nav a {
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+nav a[aria-current="page"] {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.hero {
+  padding: 36px 0 20px;
+}
+
+.hero h1 {
+  font-family: "IBM Plex Serif", Georgia, serif;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 600;
+  line-height: 1.15;
+  margin: 0 0 10px;
+}
+
+.hero p,
+.lede {
+  margin: 0;
+  color: var(--muted);
+  max-width: 62ch;
+}
+
+.panel {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  padding: 20px;
+}
+
+.modes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.modes label {
+  border: 1px solid var(--line);
+  padding: 10px 12px;
+  cursor: pointer;
+  background: #fff;
+}
+
+.modes input {
+  margin-right: 8px;
+}
+
+.drop {
+  border: 1px dashed var(--accent);
+  background: #fff;
+  padding: 28px 16px;
+  text-align: center;
+}
+
+.drop strong {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.drop span,
+.hint {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+#file {
+  display: none;
+}
+
+.browse {
+  margin-top: 12px;
+  display: inline-block;
+}
+
+button,
+.browse,
+.download {
+  font: inherit;
+  background: var(--accent);
+  color: #f7f2e6;
+  border: 0;
+  padding: 10px 14px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+button.secondary {
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--line);
+}
+
+.row {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+  flex-wrap: wrap;
+}
+
+.files,
+.result,
+.status {
+  margin-top: 16px;
+}
+
+.files ul,
+.steps {
+  list-style: none;
+  padding: 0;
+  margin: 8px 0 0;
+}
+
+.files li,
+.steps li {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 0.95rem;
+}
+
+.steps {
+  margin-top: 28px;
+}
+
+.steps li {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  align-items: start;
+  border-bottom: 0;
+  padding: 0 0 12px;
+}
+
+.num {
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.status {
+  min-height: 1.4em;
+}
+
+.status.error {
+  color: var(--danger);
+}
+
+.status.ok {
+  color: var(--ok);
+}
+
+.meter {
+  height: 8px;
+  background: #ddd4c2;
+  margin-top: 10px;
+}
+
+.meter > span {
+  display: block;
+  height: 8px;
+  width: 0;
+  background: var(--accent-2);
+}
+
+.legal {
+  padding: 36px 0 64px;
+}
+
+.legal h1 {
+  font-family: "IBM Plex Serif", Georgia, serif;
+  font-size: 2rem;
+  margin: 0 0 8px;
+}
+
+.legal h2 {
+  font-size: 1.1rem;
+  margin: 28px 0 8px;
+}
+
+.legal p,
+.legal li {
+  color: var(--ink);
+}
+
+.meta {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0;
+  background: var(--paper);
+}
+
+th,
+td {
+  border: 1px solid var(--line);
+  text-align: left;
+  padding: 8px 10px;
+  font-size: 0.95rem;
+}
+
+code {
+  font-family: "IBM Plex Mono", Consolas, monospace;
+  font-size: 0.9em;
+  background: #fff;
+  padding: 0 4px;
+  border: 1px solid var(--line);
+}
+
+.site-footer p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 700px) {
+  .modes {
+    grid-template-columns: 1fr;
+  }
+
+  nav {
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 10px 14px;
+  }
+}

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PackZip file compressor</title>
+    <meta name="description" content="Compress files to ZIP or gzip. Optional JPEG, PNG, and WebP recompress. Files are deleted after one hour." />
+    <link rel="canonical" href="/" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/css/site.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="wrap">
+        <a class="brand" href="/">
+          <svg width="28" height="28" viewBox="0 0 32 32" aria-hidden="true">
+            <rect width="32" height="32" rx="6" fill="#17352c" />
+            <rect x="8" y="7" width="16" height="18" rx="2" fill="#e7e1d4" />
+            <rect x="8" y="7" width="16" height="5" fill="#c4a35a" />
+          </svg>
+          PackZip
+        </a>
+        <nav>
+          <a href="/" aria-current="page">Compress</a>
+          <a href="/terms">Terms</a>
+          <a href="/privacy">Privacy</a>
+          <a href="/domain">Domain</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="wrap">
+      <section class="hero">
+        <h1>Compress files to ZIP or gzip.</h1>
+        <p>
+          Upload up to <span id="max-files">20</span> files, <span id="max-size">50 MB</span> total.
+          Output stays available for <span id="ttl">60</span> minutes, then it is deleted.
+        </p>
+      </section>
+
+      <section class="panel" aria-labelledby="compress-heading">
+        <h2 id="compress-heading" class="sr-only">Upload</h2>
+        <form id="form">
+          <div class="modes" role="radiogroup" aria-label="Compression mode">
+            <label><input type="radio" name="mode" value="zip" checked /> ZIP archive</label>
+            <label><input type="radio" name="mode" value="images" /> Recompress images, then ZIP</label>
+            <label><input type="radio" name="mode" value="gzip" /> Gzip one file</label>
+          </div>
+
+          <div class="drop" id="drop">
+            <strong>Drop files here</strong>
+            <span>or choose them from disk</span>
+            <div>
+              <label class="browse" for="file">Choose files</label>
+              <input id="file" name="files" type="file" multiple />
+            </div>
+          </div>
+
+          <div class="files" id="list" hidden>
+            <strong>Selected</strong>
+            <ul></ul>
+          </div>
+
+          <div class="row">
+            <button type="submit" id="run">Compress</button>
+            <button type="button" class="secondary" id="clear">Clear</button>
+          </div>
+          <div class="meter" hidden id="meter"><span></span></div>
+          <p class="status" id="status" role="status"></p>
+          <div class="result" id="result" hidden></div>
+        </form>
+      </section>
+
+      <ol class="steps">
+        <li><span class="num">1</span><span>Pick ZIP, image recompress, or gzip.</span></li>
+        <li><span class="num">2</span><span>The server writes the archive and returns the real byte counts.</span></li>
+        <li><span class="num">3</span><span>Download before the job expires. Nothing is kept after that.</span></li>
+      </ol>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <p>PackZip. Local processing through the REST API.</p>
+        <nav>
+          <a href="/privacy">Privacy</a>
+          <a href="/terms">Terms</a>
+        </nav>
+      </div>
+    </footer>
+    <script src="/js/app.js"></script>
+  </body>
+</html>
