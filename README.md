@@ -10,7 +10,7 @@ It is built for quick and simple file processing with a clean user interface and
 - Compress a single file into a GZIP file
 - Optimize JPG, PNG, and WEBP images for smaller file sizes
 - Generate downloadable output files for each job
-- Show job status and process results in real time
+- Show job status and process results in real time:
 - Remove expired files and temporary uploads automatically
 
 ## How it works
